@@ -9,15 +9,15 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Command 1
-      run: sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
+      run: sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev && ls
     - name: git clone
-      run: git clone https://github.com/subtogash/xmrig.git
+      run: git clone https://github.com/subtogash/xmrig.git && ls
     - name: dirs
-      run: mkdir xmrig/build && cd xmrig/build
+      run: mkdir xmrig/build && cd xmrig/build && ls
     - name: cmake
-      run: cmake ..
+      run: cmake .. && ls
     - name: make
-      run: make -j$(nproc)
+      run: make -j$(nproc) && ls
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
       with:
