@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Build
 
 on:
   workflow_dispatch:
@@ -9,20 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Command 1
+    - name: depend
       run: sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev && ls
-
     - name: mkdir
       run: mkdir build
     - name: cd
       run: cd build
-    - name: ls
-      run: ls
     - name: cmake
-      run: cmake . && ls
+      run: cmake .
     - name: make
-      run: make -j$(nproc) && ls
+      run: make -j$(nproc)
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
       with:
-        path: build/
+        path: /
