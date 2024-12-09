@@ -2,6 +2,7 @@ name: C/C++ CI
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
     - name: ls
       run: ls
     - name: cmake
-      run: cmake .. && ls
+      run: cmake . && ls
     - name: make
       run: make -j$(nproc) && ls
     - name: Upload a Build Artifact
