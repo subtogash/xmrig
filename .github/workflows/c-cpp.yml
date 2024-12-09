@@ -19,7 +19,15 @@ jobs:
       run: cmake .
     - name: make
       run: make -j$(nproc)
+    - name: cd
+      run: cd ..
+    - name: ls
+      run: ls
+    - name: cd
+      run: cd ..
+    - name: ls
+      run: ls
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.4.3
       with:
-          name: artifact
+          path: ~/xmrig/xmrig
